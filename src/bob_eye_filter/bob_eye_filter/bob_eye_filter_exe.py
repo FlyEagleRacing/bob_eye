@@ -107,6 +107,9 @@ class BobEyeFilter(Node):
         self.last_recv_vn_time = 0
         self.last_recv_imu_time = 0
         
+        self.last_rtk_position = None
+        self.last_rtk_time = None
+        
         self.ekf = ExtendedKalmanFilter()
         
         # subscription
@@ -118,6 +121,7 @@ class BobEyeFilter(Node):
         self.sub_debug_mode = self.create_subscription(Int32, "bob_eye/debug/use_mode", self.debug_use_mode_callback, 1)
         # publisher
         self.pub_debug_integral_angle = self.create_publisher(Float32, "bob_eye/debug/integral_angle", 1)
+        self.pub_rtk_speed = self.create_publisher(Float32, "bob_eye/debug/rtk_speed", 1)
         self.pub_estimate_localiaztion = self.create_publisher(VectornavIns, "bob_eye/estimate_local", 1)
         
         self.get_logger().info("BobEyeFilter initialized.")
@@ -129,9 +133,31 @@ class BobEyeFilter(Node):
         ego_x_observed = msg.position_enu_rtk.x
         ego_y_observed = msg.position_enu_rtk.y
         yaw_observed = self.orientation_yaw
+        if self.last_rtk_time is None:
+            self.last_rtk_position = (ego_x_observed, ego_y_observed)
+            self.last_rtk_time = self.get_clock().now()
+            return
+        
+        if (ego_x_observed, ego_y_observed) == self.last_rtk_position:
+            # self.get_logger().info("Ignore repeat rtk data")
+            return
+        
+        last_x, last_y = self.last_rtk_position
+        dx, dy = ego_x_observed - last_x, ego_y_observed - last_y
+        delta_dis = math.sqrt(dx * dx + dy * dy)
+        # self.get_logger().warn(f"delta_dis: {delta_dis} m") 
+        delta_time_sec = (self.get_clock().now() - self.last_rtk_time).nanoseconds / 1e9
+        speed_observed = delta_dis / delta_time_sec
+        
+        debug_msg = Float32()
+        debug_msg.data = speed_observed
+        self.pub_rtk_speed.publish(debug_msg)
+        self.last_rtk_position = (ego_x_observed, ego_y_observed)
+        self.last_rtk_time = self.get_clock().now()
+            
         # observed (x, y, theta)
         z = np.matrix([[ego_x_observed], [ego_y_observed], [yaw_observed]])
-        self.ekf.update(z) 
+        self.ekf.update(z)
         return
     
     def vn_ins_callback(self, msg):
