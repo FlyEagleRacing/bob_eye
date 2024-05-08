@@ -71,7 +71,7 @@ class BobEyeFilter(Node):
             # if force use integral
             use_integral = True
         elif self.force_use_orientation_mode == 0:
-            if abs(vn_ori_stddev) < self.VN_ORI_STDDEV_TH:
+            if abs(vn_ori_stddev) < self.VN_ORI_STDDEV_TH and vn_ori_stddev != 0:
                 # if orientation is reliable
                 use_integral = False
             else:
