@@ -43,6 +43,7 @@ set(idl_files
   msg/VectornavIns.idl
   msg/FlyeagleEyePlannerReport.idl
   msg/ControllerStatus.idl
+  msg/Kistler_Vel_Angle.idl
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}

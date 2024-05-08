@@ -13,6 +13,7 @@
   <test_depend>python3-pytest</test_depend>
 
   <exec_depend>vectornav_msgs</exec_depend>
+  <exec_depend>a2rl_bs_msgs</exec_depend>
 
   <export>
     <build_type>ament_python</build_type>
