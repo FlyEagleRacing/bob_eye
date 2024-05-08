@@ -1,0 +1,15 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module eav24_bsu_msgs {
+    module msg { 
+        @final struct Tyre_Surface_Temp_Front {
+            a2rl_bs_msgs::msg::Timestamp timestamp; // Timestamp in nanoseconds
+            unsigned short outer_fl;
+            unsigned short center_fl;
+            unsigned short inner_fl;
+            unsigned short outer_fr;
+            unsigned short center_fr;
+            unsigned short inner_fr;
+        };
+    };
+};

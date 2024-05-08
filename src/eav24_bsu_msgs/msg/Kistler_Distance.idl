@@ -1,0 +1,15 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module eav24_bsu_msgs {
+    module msg { 
+        @final struct Kistler_Distance {
+            a2rl_bs_msgs::msg::Timestamp timestamp; // Timestamp in nanoseconds
+            /**
+            * Range: -2147480000..2147480000 (-2147480.0..2147480.0 m)
+            * Scale: 0.001
+            * Offset: 0
+            */
+            long distance;
+        };
+    };
+};

@@ -1,6 +1,6 @@
 #include "a2rl_bs_msgs/msg/Timestamp.idl"
 
-module a2rl_bs_msgs {
+module eav24_bsu_msgs {
     module msg { 
         @final struct Kistler_Vel_Angle {
             a2rl_bs_msgs::msg::Timestamp timestamp; // Timestamp in nanoseconds

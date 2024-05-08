@@ -1,0 +1,13 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module eav24_bsu_msgs {
+    module msg { 
+        @final struct Tpms_Rear {
+            a2rl_bs_msgs::msg::Timestamp timestamp; // Timestamp in nanoseconds
+            unsigned short tpr4_temp_rl;
+            unsigned short tpr4_temp_rr;
+            unsigned short tpr4_abs_press_rl;
+            unsigned short tpr4_abs_press_rr;
+        };
+    };
+};

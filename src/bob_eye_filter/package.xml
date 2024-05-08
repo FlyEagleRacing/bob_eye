@@ -14,7 +14,7 @@
 
   <exec_depend>vectornav_msgs</exec_depend>
   <exec_depend>a2rl_bs_msgs</exec_depend>
-
+  <exec_depend>eav24_bsu_msgs</exec_depend>
   <export>
     <build_type>ament_python</build_type>
   </export>

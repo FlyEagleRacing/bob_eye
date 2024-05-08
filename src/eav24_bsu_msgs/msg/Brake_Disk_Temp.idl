@@ -1,0 +1,13 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module eav24_bsu_msgs {
+    module msg { 
+        @final struct Brake_Disk_Temp {
+            a2rl_bs_msgs::msg::Timestamp timestamp; // Timestamp in nanoseconds
+            unsigned short brake_disk_temp_fl;
+            unsigned short brake_disk_temp_fr;
+            unsigned short brake_disk_temp_rr;
+            unsigned short brake_disk_temp_rl;
+        };
+    };
+};

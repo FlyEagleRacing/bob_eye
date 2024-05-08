@@ -1,0 +1,29 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module eav24_bsu_msgs {
+    module msg { 
+        @final struct Kistler_Angle_Vel_Body {
+            a2rl_bs_msgs::msg::Timestamp timestamp; // Timestamp in nanoseconds
+            /**
+            * Range: -15000..15000 (-300..300 /s)
+            * Scale: 0.02
+            * Offset: 0
+            */
+            short ang_vel_x_body;
+
+            /**
+            * Range: -15000..15000 (-300..300 /s)
+            * Scale: 0.02
+            * Offset: 0
+            */
+            short ang_vel_y_body;
+
+            /**
+            * Range: -15000..15000 (-300..300 /s)
+            * Scale: 0.02
+            * Offset: 0
+            */
+            short ang_vel_z_body;
+        };
+    };
+};

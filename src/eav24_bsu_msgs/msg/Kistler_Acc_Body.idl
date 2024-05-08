@@ -1,0 +1,29 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module eav24_bsu_msgs {
+    module msg { 
+        @final struct Kistler_Acc_Body {
+            a2rl_bs_msgs::msg::Timestamp timestamp; // Timestamp in nanoseconds
+            /**
+            * Range: -18000..18000 (-180..180 m/s)
+            * Scale: 0.01
+            * Offset: 0
+            */
+            short acc_x_body;
+
+            /**
+            * Range: -18000..18000 (-180..180 m/s)
+            * Scale: 0.01
+            * Offset: 0
+            */
+            short acc_y_body;
+
+            /**
+            * Range: -18000..18000 (-180..180 m/s)
+            * Scale: 0.01
+            * Offset: 0
+            */
+            short acc_z_body;
+        };
+    };
+};
