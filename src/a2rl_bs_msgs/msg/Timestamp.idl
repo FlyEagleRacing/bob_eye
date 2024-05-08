@@ -1,0 +1,9 @@
+module a2rl_bs_msgs { 
+module msg {
+
+@final struct Timestamp {
+  unsigned long long nanoseconds;
+};
+
+};
+};

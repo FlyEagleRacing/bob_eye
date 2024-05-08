@@ -1,0 +1,20 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+#include "a2rl_bs_msgs/msg/CartesianFrame.idl"
+#include "a2rl_bs_msgs/msg/WheelsData.idl"
+
+module a2rl_bs_msgs { 
+    module msg {
+        @final struct EgoState {
+            a2rl_bs_msgs::msg::Timestamp timestamp;
+            a2rl_bs_msgs::msg::CartesianFrame velocity;
+            a2rl_bs_msgs::msg::CartesianFrame velocity_stddev;
+            a2rl_bs_msgs::msg::CartesianFrame angular_rate;
+            a2rl_bs_msgs::msg::CartesianFrame angular_rate_stddev;
+            a2rl_bs_msgs::msg::CartesianFrame acceleration;
+            a2rl_bs_msgs::msg::CartesianFrame acceleration_stddev;
+            a2rl_bs_msgs::msg::WheelsData wheels_speed;
+            a2rl_bs_msgs::msg::WheelsData wheels_toe_angle;
+            a2rl_bs_msgs::msg::CartesianFrame ypr_chassis;
+        };
+    };
+};

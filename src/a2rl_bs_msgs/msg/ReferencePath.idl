@@ -1,0 +1,12 @@
+#include "a2rl_bs_msgs/msg/CartesianFrameState.idl"
+module a2rl_bs_msgs { 
+    module msg {
+        @final struct ReferencePath {
+            a2rl_bs_msgs::msg::Timestamp timestamp;
+            float path_time_discretization_s;
+            a2rl_bs_msgs::msg::CartesianFrame origin_position;
+            a2rl_bs_msgs::msg::CartesianFrame origin_orientation_ypr;
+            sequence<a2rl_bs_msgs::msg::CartesianFrameState, 100> path;
+        };
+    };
+};

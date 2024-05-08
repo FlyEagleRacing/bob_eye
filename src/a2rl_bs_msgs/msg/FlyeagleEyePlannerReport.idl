@@ -1,0 +1,17 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module a2rl_bs_msgs {
+    module msg {
+        struct FlyeagleEyePlannerReport {
+            uint8 localization_received_;
+            uint8 race_control_report_received_;
+            uint8 loc_status_received_;
+            uint8 bsu_status_recived_;
+            uint8 loc_timeout;
+            uint8 rc_timeout;
+            uint8 bsu_status_timeout;
+            uint8 controller_safe_stop;
+            uint8 lap_count;
+        };
+    };
+};

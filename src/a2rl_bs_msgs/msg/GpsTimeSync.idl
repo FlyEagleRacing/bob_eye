@@ -1,0 +1,17 @@
+#include "builtin_interfaces/msg/Time.idl"
+
+module a2rl_bs_msgs {
+  module msg {
+    @final struct GpsTimeSync {
+
+      builtin_interfaces::msg::Time stamp;
+      builtin_interfaces::msg::Time steady_stamp;
+
+      uint64 itow;
+      int16 week;
+      int8 leap_seconds;
+      boolean valid;
+
+    };
+  };
+};

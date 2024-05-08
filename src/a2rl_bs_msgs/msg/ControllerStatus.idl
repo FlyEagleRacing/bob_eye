@@ -1,0 +1,19 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module a2rl_bs_msgs { 
+    module msg {
+        @final struct ControllerStatus {
+            a2rl_bs_msgs::msg::Timestamp timestamp;
+            uint8 safe_stop_mode;
+            string reason_for_safestop;
+            float input_spd;
+            float throttle;
+            float steering;
+            float front_brake;
+            float rear_brake;
+            float slip_f;
+            float slip_r;     
+            uint8 gear;   
+        };
+    };
+};

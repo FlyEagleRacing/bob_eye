@@ -1,0 +1,14 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+#include "a2rl_bs_msgs/msg/CartesianFrame.idl"
+
+module a2rl_bs_msgs { 
+    module msg {
+        @final struct Localization {
+            a2rl_bs_msgs::msg::Timestamp timestamp;
+            a2rl_bs_msgs::msg::CartesianFrame position;
+            a2rl_bs_msgs::msg::CartesianFrame position_stddev;
+            a2rl_bs_msgs::msg::CartesianFrame orientation_ypr;
+            a2rl_bs_msgs::msg::CartesianFrame orientation_stddev;
+        };
+    };
+};

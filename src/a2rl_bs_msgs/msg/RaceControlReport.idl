@@ -1,0 +1,29 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module a2rl_bs_msgs {
+    module msg {
+        struct RaceControlReport {
+            a2rl_bs_msgs::msg::Timestamp timestamp;
+            float max_velocity;
+            float velocity_perc;
+            float max_velocity_camera;
+            float kp_yaw_ctr;
+            octet track_flag;
+            octet vehicle_flag;
+            octet pit_lane_mode;
+            boolean safe_stop;
+            boolean safe_stop_reset;
+            boolean joy_ctr_enable;
+            boolean force_race_mode;
+            boolean kalman_filter_enable;
+            boolean lane_perception_enable;
+            boolean safety_car;
+            boolean long_lap;
+            boolean code_60;
+            boolean emergency_stop;
+            // 0:race_track 1: left_track 2: right_track
+            octet track_mode;
+            float follow_distance;
+        };
+    };
+};

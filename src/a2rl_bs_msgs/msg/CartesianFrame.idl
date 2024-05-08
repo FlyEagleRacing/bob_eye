@@ -1,0 +1,11 @@
+module a2rl_bs_msgs { 
+module msg {
+
+@final struct CartesianFrame {
+  float x;
+  float y;
+  float z;
+};
+
+};
+};

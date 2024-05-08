@@ -1,0 +1,3 @@
+geometry_msgs/Vector3 position_enu_rtk
+geometry_msgs/Vector3 orientation_ypr_ins
+geometry_msgs/Vector3 orientation_stddev_ypr_ins

@@ -1,0 +1,23 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+#include "a2rl_bs_msgs/msg/CartesianFrame.idl"
+
+module a2rl_bs_msgs { 
+module msg {
+
+struct VectornavIns {
+  a2rl_bs_msgs::msg::Timestamp timestamp;
+  a2rl_bs_msgs::msg::Timestamp time_gps;
+  boolean ins_status;
+  a2rl_bs_msgs::msg::CartesianFrame acceleration_ins;
+  a2rl_bs_msgs::msg::CartesianFrame angular_rate_ins;
+  a2rl_bs_msgs::msg::CartesianFrame position_enu_ins;
+  a2rl_bs_msgs::msg::CartesianFrame velocity_enu_ins;
+  a2rl_bs_msgs::msg::CartesianFrame velocity_body_ins;
+  float pos_stddev_ins;
+  float vel_stddev_ins;
+  a2rl_bs_msgs::msg::CartesianFrame orientation_ypr;
+  a2rl_bs_msgs::msg::CartesianFrame orientation_stddev;
+};
+
+};
+};

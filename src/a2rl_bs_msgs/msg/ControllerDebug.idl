@@ -1,0 +1,20 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module a2rl_bs_msgs { 
+    module msg {
+        @final struct ControllerDebug {
+            a2rl_bs_msgs::msg::Timestamp timestamp;
+            float lateral_error;
+            float yaw_error;
+            float speed_error;
+            float long_ff1;
+            float long_ff2;
+            float long_fb1p;
+            float long_fb1i;
+            float long_fb2;
+            float long_ft;
+            float lat_ff;
+            float lat_fb;
+        };
+    };
+};

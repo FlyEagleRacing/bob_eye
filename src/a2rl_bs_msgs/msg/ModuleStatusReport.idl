@@ -1,0 +1,15 @@
+#include "a2rl_bs_msgs/msg/Timestamp.idl"
+
+module a2rl_bs_msgs { 
+module msg {
+
+@final struct ModuleStatusReport {
+  a2rl_bs_msgs::msg::Timestamp timestamp;
+  unsigned long execution_time_us;
+  octet module_id;
+  @default (value=20)
+  int8 status_code; 
+};
+
+};
+};

@@ -1,0 +1,12 @@
+module a2rl_bs_msgs { 
+module msg {
+
+@final struct WheelsData {
+  float fl;
+  float fr;
+  float rl;
+  float rr;
+};
+
+};
+};
