@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>bob_eye_launch</name>
+  <version>0.0.1</version>
+  <description>launch .</description>
+  <maintainer email="your-email@example.com">Your Name</maintainer>
+  <license>TODO: License</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>ros2.launch</exec_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
