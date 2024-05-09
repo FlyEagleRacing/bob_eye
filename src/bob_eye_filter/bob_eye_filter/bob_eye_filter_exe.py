@@ -21,13 +21,15 @@ class ExtendedKalmanFilter:
         self.H = np.matrix([
             [1, 0, 0, 0],
             [0, 1, 0, 0],
-            [0, 0, 1, 0]
+            [0, 0, 1, 0],
+            [0, 0, 0, 1]
         ])
         # Measurement noise covariance
         self.R = np.matrix([
-            [0.5, 0, 0],
-            [0, 0.5, 0],
-            [0, 0, 0.1]
+            [0.5, 0, 0, 0],   # Variance in x measurement
+            [0, 0.5, 0, 0],   # Variance in y measurement
+            [0, 0, 0.1, 0],   # Variance in theta measurement
+            [0, 0, 0, 0.1]    # Variance in v measurement
         ])
         self.last_timestamp = None
         
@@ -156,7 +158,7 @@ class BobEyeFilter(Node):
         self.last_rtk_time = self.get_clock().now()
             
         # observed (x, y, theta)
-        z = np.matrix([[ego_x_observed], [ego_y_observed], [yaw_observed]])
+        z = np.matrix([[ego_x_observed], [ego_y_observed], [yaw_observed], [speed_observed]])
         self.ekf.update(z)
         return
     
@@ -215,6 +217,7 @@ class BobEyeFilter(Node):
         msg.position_enu_ins.x = ekf_state[0][0]
         msg.position_enu_ins.y = ekf_state[1][0]
         msg.velocity_body_ins.x = speed_mps_observed
+        msg.vel_stddev_ins = ekf_cov[3]
         msg.orientation_ypr.z = yaw_observed
         msg.pos_stddev_ins = math.sqrt(ekf_cov[0] * ekf_cov[0] + ekf_cov[1] * ekf_cov[1])
         self.pub_estimate_localiaztion.publish(msg)
